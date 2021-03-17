@@ -8,6 +8,9 @@ public class Test01 : MonoBehaviour
     void Start()
     {
         Debug.Log("Hello World!");
+        Rigidbody rigibody;
+        rigibody = gameObject.GetComponent<Rigidbody>();
+        rigibody.useGravity = false;
     }
 
     // Update is called once per frame
