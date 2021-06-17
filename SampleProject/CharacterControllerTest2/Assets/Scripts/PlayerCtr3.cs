@@ -31,5 +31,34 @@ public class PlayerCtr3 : MonoBehaviour
 
         Vector3 globalDir = transform.TransformDirection(moveDir);
 
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.run"))
+            if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
+                animator.SetTrigger("Run");
+
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.run"))
+            if (moveDir.z > 0 || moveDir.z < 0)
+                animator.SetTrigger("Run");
+
+        if ((Input.GetAxis("Horizontal") == 0) && (Input.GetAxis("Vertical") == 0))
+            animator.SetTrigger("Idle");
+
+        if (controller.isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                gravity = 10.0f;
+                Debug.Log("pressed");
+
+                moveDir.y = jumpSpeed;
+            }
+
+        if (moveDir.y <= 0.0f)
+        {
+            moveDir.y = 0.0f;
+            gravity = 0.0f;
+        }
+        else gravity -= 0.4f;
+
+        moveDir.y += gravity * Time.deltaTime;
+        controller.Move(globalDir * Time.deltaTime);
     }
 }
