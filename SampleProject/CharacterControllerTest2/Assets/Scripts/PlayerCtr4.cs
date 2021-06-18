@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCtr3 : MonoBehaviour
+public class PlayerCtr4 : MonoBehaviour
 {
     CharacterController controller;
     Animator animator;
@@ -60,5 +60,11 @@ public class PlayerCtr3 : MonoBehaviour
 
         moveDir.y += gravity * Time.deltaTime;
         controller.Move(globalDir * Time.deltaTime);
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("BANANA"))
+            Destroy(hit.gameObject, 0.0f);
     }
 }
