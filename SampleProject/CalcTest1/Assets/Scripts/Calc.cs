@@ -24,7 +24,7 @@ public class Calc : MonoBehaviour
         result = resultText.GetComponent<Text>();
     }
 
-    void OnPlusBtnClick()
+    public void OnPlusBtnClick()
     {
         input1 = inputObj1.GetComponent<InputField>();
         input2 = inputObj2.GetComponent<InputField>();
