@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public delegate void PlayerEventHandler();
 
-    public static PlayerEventHandler OnPlayerEvent;
+    public static event PlayerEventHandler OnPlayerEvent;
     int health = 50;
     public float speed = 3f;
 
