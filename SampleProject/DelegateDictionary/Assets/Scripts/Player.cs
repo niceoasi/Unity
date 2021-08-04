@@ -9,10 +9,17 @@ public class Player : MonoBehaviour
     int health = 50;
     public float speed = 3f;
 
+    GameObject[] enemyObj;
+
     public int Health
     {
         get { return health; }
         set { health = Mathf.Clamp(value, 0, 100); }
+    }
+
+    private void Awake()
+    {
+        enemyObj = GameObject.FindGameObjectsWithTag("ENEMY");
     }
 
     // Update is called once per frame
@@ -45,6 +52,15 @@ public class Player : MonoBehaviour
         if (other.CompareTag("CHECKPOINT"))
         {
             GameManager.instance.NotifyEvent(GameManager.EventType.ExitTouch);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("CHECKPOINT"))
+        {
+            foreach (GameObject cmp in enemyObj)
+                cmp.SendMessage("OnPlayerExitDetection", SendMessageOptions.DontRequireReceiver);
         }
     }
 

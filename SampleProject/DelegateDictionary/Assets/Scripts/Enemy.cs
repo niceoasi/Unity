@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        GameManager.instance.AddListener(GameManager.EventType.Touch, OnPlayerDtection);
-        GameManager.instance.AddListener(GameManager.EventType.Die, OnPlayerDie);
-        GameManager.instance.AddListener(GameManager.EventType.ExitTouch, OnPlayerExitDetection);
-    }
 
     void OnPlayerDtection()
     {
