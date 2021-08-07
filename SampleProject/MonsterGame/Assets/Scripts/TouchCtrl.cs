@@ -59,6 +59,18 @@ public class TouchCtrl : MonoBehaviour
                         if (touch.position.x <= (startPos.x + dragRadius))
                             touchID = i;
                         break;
+                    case TouchPhase.Moved:
+                        if (touch.position.x <= (startPos.x + dragRadius))
+                            SendInputValue(touchPos);
+                        break;
+                    case TouchPhase.Stationary:
+                        if (touch.position.x <= (startPos.x + dragRadius))
+                            SendInputValue(touchPos);
+                        break;
+                    case TouchPhase.Ended:
+                        if (touch.position.x <= (startPos.x + dragRadius))
+                            touchID = -1;
+                        break;
                 }
             }
         }
@@ -66,7 +78,29 @@ public class TouchCtrl : MonoBehaviour
 
     void SendInputValue(Vector2 inputPos)
     {
+        if (btnPressed)
+        {
+            Vector2 gabPos = (inputPos - startPos);
 
+            if (gabPos.sqrMagnitude <= dragRadius * dragRadius)
+                touchCtrl.position = inputPos;
+            else
+            {
+                gabPos.Normalize();
+                touchCtrl.position = startPos + gabPos * dragRadius;
+            }
+        }
+        else touchCtrl.position = startPos;
+
+        Vector2 touchPosXY = new Vector2(touchCtrl.position.x, touchCtrl.position.y);
+        Debug.Log(touchCtrl.position.x);
+        Debug.Log(touchCtrl.position.y);
+
+        Vector2 diff = touchPosXY - startPos;
+        Vector2 normDiff = new Vector2(diff.x / dragRadius, diff.y / dragRadius);
+
+        if (player != null)
+            //player.OnTouchValueChanged(normDiff);
     }
 
     // Update is called once per frame
