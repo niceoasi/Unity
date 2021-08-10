@@ -8919,7 +8919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fe150194d324aeca386e6b09625589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1601291321}
   dragRadius: 50
 --- !u!1001 &1482692928
 PrefabInstance:
@@ -9945,6 +9945,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000014078434744, guid: ceaf6dfd30302cb4a86b9423f1efde72, type: 3}
   m_PrefabInstance: {fileID: 1601291318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1601291320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000013738095950, guid: ceaf6dfd30302cb4a86b9423f1efde72, type: 3}
+  m_PrefabInstance: {fileID: 1601291318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1601291321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601291320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7a3f5ee855340fd8ab7b90ccfa841e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1607920262
 PrefabInstance:
   m_ObjectHideFlags: 0

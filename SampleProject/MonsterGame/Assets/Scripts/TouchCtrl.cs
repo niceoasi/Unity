@@ -100,7 +100,7 @@ public class TouchCtrl : MonoBehaviour
         Vector2 normDiff = new Vector2(diff.x / dragRadius, diff.y / dragRadius);
 
         if (player != null)
-            //player.OnTouchValueChanged(normDiff);
+            player.OnTouchValueChanged(normDiff);
     }
 
     // Update is called once per frame
